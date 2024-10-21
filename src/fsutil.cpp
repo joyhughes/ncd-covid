@@ -1,6 +1,8 @@
 #include <fsutil.hpp>
 #include <envutil.hpp>
 #include <filesystem>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -24,4 +26,11 @@ std::vector<std::string> all_fasta(void) {
         result.push_back(fasta);
     }
     return result;
+}
+
+std::string readTextFile(const std::string& filePath) {
+    std::ifstream t(filePath);
+    std::stringstream buffer;
+    buffer << t.rdbuf();
+    return buffer.str();
 }

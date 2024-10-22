@@ -55,7 +55,6 @@ set(COMMON_LIB_SRCS
         src/fastaContentReader.hpp
         src/testNcd.cpp
 )
-add_subdirectory("rocksdb")
 add_library(common ${COMMON_LIB_SRCS})
 
 set(TEST_MAIN_SRCS src/main.cpp)
@@ -64,7 +63,8 @@ add_executable(test_main ${TEST_MAIN_SRCS})
 set(IMPORTER_MAIN_SRCS src/importer-main.cpp)
 add_executable(importer ${IMPORTER_MAIN_SRCS})
 
-set(CLEANER_MAIN_SRCS src/cleaner-main.cpp)
+set(CLEANER_MAIN_SRCS src/cleaner-main.cpp
+        src/testNcd.cpp)
 add_executable(cleaner ${CLEANER_MAIN_SRCS})
 
 set(SORT_EVERYTHING_SRCS src/sort-everything-main.cpp)
